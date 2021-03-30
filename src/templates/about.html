@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+  {% for el in my_list %}
+      {% if el == 1 %}
+          <li><b>{{el}}</b></li>
+      {% else %}
+          <li>{{el}}</li>
+      {% endif %}
+  {% endfor %}
+</ul>
+{% endblock content %}
