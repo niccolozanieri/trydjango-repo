@@ -21,6 +21,13 @@ class ProductForm(forms.ModelForm):
                   )
     price = forms.DecimalField()
 
+    def clean_title(self, *args, **kwargs):
+        title = self.cleaned_data.get("title")
+        if (not "hostia" in title) and (not "Hostia" in title):
+            raise forms.ValidationError("Title should contain 'hostia'")
+        return title
+
+
 
     class Meta:
         model = Product

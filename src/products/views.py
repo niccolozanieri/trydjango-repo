@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 
 # Create your views here.
 from .models import Product
@@ -15,8 +15,22 @@ def product_create_view(request): # we're using this because it's clearer
     }
     return render(request, "products/product_create.html", context)
 
-def dynamic_lookup_view(request, my_id): #do not call Product your view
-    obj = Product.objects.get(id= my_id)
+
+def product_delete_view(request, id):
+    obj = Product.objects.get(id=id)
+    if request.method == "POST":
+        obj.delete()
+        return redirect("../../")
+
+    context = {
+        'object': obj
+    }
+    return render(request, "products/product_delete.html", )
+
+
+def dynamic_lookup_view(request, id): #do not call Product your view
+    # obj = Product.objects.get(id= my_id)
+    obj = get_object_or_404(Product, id= id)
     context = {
         "object": obj
     }
