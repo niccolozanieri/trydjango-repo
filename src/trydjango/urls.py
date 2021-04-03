@@ -20,12 +20,14 @@ from pages.views import about_view
 from products.views import (
                             dynamic_lookup_view,
                             product_create_view,
-                            product_delete_view
+                            product_delete_view,
+                            products_list_view
                            )
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('create/', product_create_view, name='product_create'),
+    path('products/', products_list_view, name='products_list'),
     path('products/<int:id>', dynamic_lookup_view, name='product_detail'),
     path('products/<int:id>/delete', product_delete_view, name='product_delete'),
     path('about/', about_view, name='about'),
