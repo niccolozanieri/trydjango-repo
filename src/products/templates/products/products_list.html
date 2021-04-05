@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
   {% for instance in objects_list %}
-      <li>{{ instance.id }} - {{ instance.title }}</li>
+      <li>{{ instance.id }} - <a href={{instance.get_absolute_url}}>{{ instance.title }}</a></li>
   {% endfor %}
 </ul>
 

@@ -17,15 +17,15 @@ def product_create_view(request): # we're using this because it's clearer
 
 
 def product_delete_view(request, id):
-    obj = Product.objects.get(id=id)
+    obj = get_object_or_404(Product, id= id)
     if request.method == "POST":
         obj.delete()
-        return redirect("../../")
+        return redirect('../../')
 
     context = {
         'object': obj
     }
-    return render(request, "products/product_delete.html", )
+    return render(request, "products/product_delete.html", context)
 
 def products_list_view(request):
     queryset = Product.objects.all()
