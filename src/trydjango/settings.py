@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # my apps
     'products',
     'pages',
+    'blog',
 
     # default apps
     'django.contrib.admin',

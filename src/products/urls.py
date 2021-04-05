@@ -6,7 +6,7 @@ from .views import (
                             product_delete_view,
                             products_list_view
                            )
-
+app_name = 'products'
 urlpatterns = [
     path('create/', product_create_view, name='product-create'),
     path('', products_list_view, name='products-list'),
