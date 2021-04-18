@@ -2,6 +2,7 @@ from django import forms
 
 from .models import Product
 
+
 class ProductForm(forms.ModelForm):
     title = forms.CharField(
                   widget=forms.TextInput(
@@ -13,7 +14,7 @@ class ProductForm(forms.ModelForm):
     description = forms.CharField(
                         required=False,
                         widget=forms.Textarea(
-                            attrs= {
+                            attrs={
                                 "placeholder": "Your description",
                                 "rows": 15
                             }

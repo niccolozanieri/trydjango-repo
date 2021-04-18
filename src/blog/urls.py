@@ -1,14 +1,11 @@
 from django.contrib import admin
-from django.urls import path
-
-from .views import  (
-    ArticleListView,
-    ArticleDetailView
+from django.urls import include, path
+from .views import (
+    articles_create_view
 )
 
-app_name = 'articles'
-urlpatterns = [
-    path('', ArticleListView.as_view(), name='artcles-list'),
-    path('<int:id>/', ArticleDetailView.as_view(), name='articles-detail'),
 
+app_name = 'blog'
+urlpatterns = [
+    path('create/', articles_create_view, name="articles-create"),
 ]
